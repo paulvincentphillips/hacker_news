@@ -94,3 +94,8 @@ Once we fetch the ids, we save them to state and also save the length of the dat
 Pagination is handled using the react-pagination library. We pass in the pageCount variable. This is simply the length of the ids array divided by the news items per page. When a page is changed, we fire the changePage function. This handles the fetching of the next set of news stories for the next page. Using the page number and multiplying that by the number of items per page, we get the beginning or the range for our next slice of the IDs array. To get the end of the slice, we simply add the number of items per page to this value. We then call the getStories functino again with our newly calculated slice parameters. Lastly, we scroll the user to the top of the page using window.scrollTo(0, 0).
 
 ![changePage](/public/screenshots/changePage.png?raw=true)
+
+## Testing
+For end to end testing I decided to use the Cypress testing framework. I am more familiar with Selenium for this purpose but I chose to try a new framework to expand my frontend testing skills. This turned out to be a great decision as I found Cypress tests to be easy to write and very fast to run.
+
+![tests](/public/screenshots/tests.png?raw=true)
