@@ -2,7 +2,7 @@ import React from "react";
 import { GridContainer, RowContainer, Pagination, TitleContainer, MiscInfoContainer } from "./styles/newsList";
 
 const NewsGrid = ({ ...restProps }) => {
-  return <GridContainer {...restProps} />;
+  return <GridContainer id="gridContainer" {...restProps} />;
 };
 
 NewsGrid.NewsItemRow = ({ children, ...restProps }) => {
@@ -10,11 +10,11 @@ NewsGrid.NewsItemRow = ({ children, ...restProps }) => {
 };
 
 NewsGrid.Title = ({ children, ...restProps }) => {
-  return <TitleContainer {...restProps}>{children}</TitleContainer>;
+  return <TitleContainer className="newsItemTitle" {...restProps}>{children}</TitleContainer>;
 };
 
 NewsGrid.MiscInfo = ({ children, ...restProps }) => {
-  return <MiscInfoContainer {...restProps}>{children}</MiscInfoContainer>;
+  return <MiscInfoContainer className="newsItemInfo" {...restProps}>{children}</MiscInfoContainer>;
 };
 
 NewsGrid.Pagination = ({ children, ...restProps }) => {

@@ -9,8 +9,8 @@ export const HeaderContainer = () => {
       </Header.Title>
       <Header.ButtonContainer>
         <>
-          <Header.ButtonLink to={"/"}>Top Posts</Header.ButtonLink>
-          <Header.ButtonLink to={"/newposts"}>New Posts</Header.ButtonLink>
+          <Header.ButtonLink id={"topPostsBtn"} to={"/"}>Top Posts</Header.ButtonLink>
+          <Header.ButtonLink id={"newPostsBtn"} to={"/newposts"}>New Posts</Header.ButtonLink>
         </>
       </Header.ButtonContainer>
     </Header>
