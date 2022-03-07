@@ -48,9 +48,6 @@ export const NewsListContainer = ({ path }) => {
         ids.slice(beginSlice, endSlice).map((storyId) => getStory(storyId))
       );
 
-      //if posts not in state, push to array and set new state
-      //this will save posts and reduce number of requests when
-      //navigating to previously visited pages
       setNewsPosts(stories);
     } catch (error) {
       console.error(error.message);
