@@ -1,6 +1,8 @@
 # Hacker News Frontend Challenge
 Hacker News API implementation for Genesys
 
+![Hacker News Homepage](/public/screenshots/hacker_news.png?raw=true)
+
 ## Project Brief
 
 Using Angular or React, utilise the Hacker News API to create a web application that shows the latest stories. This project does not require you to implement a user profile page or comments just redesign the front page of hacker news.
@@ -51,6 +53,8 @@ normalize.css ensures my CSS renders as intended.
 react-paginate is a useful library to assist in setting up pagination.
 
 ## Project Structure
+![Project Structure](/public/screenshots/project_structure.png?raw=true)
+
 This project consists of two sections, the header and the news list.
 
 Both sections are made up of styled components. 
@@ -74,8 +78,19 @@ The global-styles file sets out default styles which are used project wide, such
 
 ## Fetching & rendering API data
 When the page mounts, our React Hook 'useEffect' fires, calling the getIds function. It passes the path required for whichever news feed is being requested. This is a prop passed in from one of the pages files, either newPosts or topPosts. It also passes two numbers which will be used to fetch only a subset of news stories using the IDs. This is done to reduce the number of requests required. It's quicker to request only 20 items per page, for example, rather than fetch all 500 stories and paginate them after.
+![useEffect](/public/screenshots/useEffect.png?raw=true)
 
 Once we fetch the ids, we save them to state and also save the length of the data array to state. This is used for pagination later. We then proceed to fetch the stories themselves using the recently required IDs. We update state with the response. This state change will trigger a render of the News List.
 
+![getIds](/public/screenshots/getIds.png?raw=true)
+![getStories](/public/screenshots/getStories.png?raw=true)
+![getStory](/public/screenshots/getStory.png?raw=true)
+
+![render](/public/screenshots/render.png?raw=true)
+
 ## Pagination
+![hacker_news_pagination](/public/screenshots/hacker_news_pagination.png?raw=true)
+
 Pagination is handled using the react-pagination library. We pass in the pageCount variable. This is simply the length of the ids array divided by the news items per page. When a page is changed, we fire the changePage function. This handles the fetching of the next set of news stories for the next page. Using the page number and multiplying that by the number of items per page, we get the beginning or the range for our next slice of the IDs array. To get the end of the slice, we simply add the number of items per page to this value. We then call the getStories functino again with our newly calculated slice parameters. Lastly, we scroll the user to the top of the page using window.scrollTo(0, 0).
+
+![changePage](/public/screenshots/changePage.png?raw=true)
